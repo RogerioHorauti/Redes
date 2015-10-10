@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
-
+//	Execute a classe, digite algo no console e de um enter, ele enviará essa mensagem para o server e o server responderá
+//com a mesma mensagem em maiúsculo.
 public class UDPClient {
 
 	public static void main(String[] args) throws IOException {
@@ -11,7 +12,7 @@ public class UDPClient {
 		//cria socket do cliente
 		DatagramSocket clientSocket = new DatagramSocket();
 		
-		//traduz hostname para endere�o IP usando DNS
+		//traduz hostname para endereço IP usando DNS
 		InetAddress IPAddress = InetAddress.getByName("hostname");
 		
 		byte[ ] sendData = new byte[1024];
@@ -27,7 +28,7 @@ public class UDPClient {
 		
 		DatagramPacket receivePacket =	new DatagramPacket(receiveData, receiveData.length);
 		
-		//l� datagrama	do servidor
+		//lê datagrama	do servidor
 		clientSocket.receive(receivePacket);
 		
 		String modifiedSentence = new String(receivePacket.getData());
